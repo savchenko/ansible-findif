@@ -1,7 +1,8 @@
-This is just prototype of a module-based solution to [a stackoverflow
-question](https://stackoverflow.com/questions/45659201/).  Given an ip
-address, it returns information about the interface that owns that
-address.
+Fork of the prototype made by [larsks](https://github.com/larsks).
+
+All in attempt to answer [a stackoverflow question](https://stackoverflow.com/questions/45659201/).
+
+Given an ip address, it returns information about the interface that owns that address.
 
 You would use it in a playbook like this:
 
