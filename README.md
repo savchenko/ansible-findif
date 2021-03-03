@@ -1,54 +1,34 @@
-Fork of the prototype made by [larsks](https://github.com/larsks).
+Based on the [prototype](https://github.com/larsks/stackoverflow-example-45659201), all in attempt to answer a [stackoverflow question](https://stackoverflow.com/questions/45659201/).
 
-All in attempt to answer [a stackoverflow question](https://stackoverflow.com/questions/45659201/).
-
-Given an ip address, it returns information about the interface that owns that address.
+Given an ip address, returns the interface name that owns that address.
 
 You would use it in a playbook like this:
 
-```
+```yaml
+---
 - hosts: localhost
   tasks:
-    - assert:
-        that: target_address is defined
-        msg: "You must defined 'target_address'"
-
     - findif:
-        address: '{{ target_address }}'
-      register: result
+        address: '127.0.0.1'
+      register: findif
 
     - debug:
-        var: result
+        var: findif
 ```
 
-Assuming the above is in `playbook.yml`, running `ansible-playbook`
-like this:
+
+Example output:
 
 ```
-ansible-playbook playbook.yml -e target_address=192.168.122.1
-```
+TASK [findif] *********************************************
+changed: [localhost]
 
-Might result in output like this (assuming your system has an
-interface with address `192.168.122.1`):
-
-```
-TASK [findif] ******************************************************************
-ok: [localhost]
-
-TASK [debug] *******************************************************************
+TASK [debug] **********************************************
 ok: [localhost] => {
-    "result": {
-        "changed": false,
-        "results": {
-            "addresses": {
-                "ipv4": [
-                    "192.168.122.1"
-                ],
-                "ipv6": []
-            },
-            "found": true,
-            "interface": "virbr0"
-        }
+    "findif": {
+        "interface": "lo",
+        "changed": true,
+        "failed": false
     }
 }
 ```
