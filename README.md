@@ -1,8 +1,19 @@
-Based on the [prototype](https://github.com/larsks/stackoverflow-example-45659201), all in attempt to answer a [stackoverflow question](https://stackoverflow.com/questions/45659201/).
+# ansible-findif
 
 Given an ip address, returns the interface name that owns that address.
 
-You would use it in a playbook like this:
+Based on the [prototype](https://github.com/larsks/stackoverflow-example-45659201), all in attempt to answer a [stackoverflow question](https://stackoverflow.com/questions/45659201/).
+
+## Installation
+
+```sh
+$ mkdir -pv $HOME/.ansible/plugins/modules/
+$ curl "https://github.com/savchenko/ansible-findif/raw/master/plugins/modules/findif.py" -o $HOME/.ansible/plugins/modules/findif.py
+```
+
+Or, better, clone this repository and symlink from it.
+
+## Usage
 
 ```yaml
 ---
@@ -16,8 +27,7 @@ You would use it in a playbook like this:
         var: findif
 ```
 
-
-Example output:
+### Example output
 
 ```
 TASK [findif] *********************************************
