@@ -8,7 +8,7 @@ Based on the [prototype](https://github.com/larsks/stackoverflow-example-4565920
 
 ```sh
 $ mkdir -pv $HOME/.ansible/plugins/modules/
-$ curl "https://github.com/savchenko/ansible-findif/raw/master/plugins/modules/findif.py" -o $HOME/.ansible/plugins/modules/findif.py
+$ curl --location -s "https://github.com/savchenko/ansible-findif/raw/master/plugins/modules/findif.py" -o $HOME/.ansible/plugins/modules/findif.py
 ```
 
 Or, better, clone this repository and symlink from it.
